@@ -1,17 +1,18 @@
 import { initializeApp } from "firebase/app";
+import {
+  getAuth,
+  signInWithRedirect,
+  signInWithPopup,
+  GoogleAuthProvider,
+} from "firebase/auth";
 
+import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
 const { response } = require("express");
 const express = require("express");
-
 const app = express();
-
 const PORT = process.env.PORT || 4000;
 
 app.get("/abc", (request, response) => {
-  response.status(200).json({ message: "Quote of the day Sam is the best!" });
-});
-
-app.get("/createAccount", (request, response) => {
   response.status(200).json({ message: "Quote of the day Sam is the best!" });
 });
 
@@ -33,3 +34,5 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
+export const auth = getAuth();
+export const db = getFirestore();
