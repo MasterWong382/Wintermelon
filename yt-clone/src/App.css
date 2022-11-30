@@ -3,12 +3,12 @@
   height: 100%;
 }
 
-.App-Inner{
+.App-Inner {
   position: absolute;
   top: 50%;
   left: 50%;
   margin-right: -50%;
-  transform:translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
 
 .App-logo {
@@ -16,7 +16,7 @@
   pointer-events: none;
 }
 
-.Gay{
+.Gay {
   border-radius: 50%;
   width: 20%;
   height: 20%;
@@ -38,8 +38,8 @@
   color: white;
 }
 
-.something{
-    justify-content: center;
+.something {
+  justify-content: center;
 }
 .App-link {
   color: #61dafb;
