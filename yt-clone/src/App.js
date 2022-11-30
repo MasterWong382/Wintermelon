@@ -14,8 +14,7 @@ const App = () => {
       }}
     >
       {/* <Login /> */}
-      <Sidebar>
-    </Sidebar>
+    <Sidebar />
     </ThemeProvider>
   );
 };
