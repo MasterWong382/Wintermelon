@@ -5,8 +5,8 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
 } from "firebase/auth";
-
 import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+
 const { response } = require("express");
 const express = require("express");
 const app = express();
@@ -17,10 +17,6 @@ app.get("/abc", (request, response) => {
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
-// Import the functions you need from the SDKs you need
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
