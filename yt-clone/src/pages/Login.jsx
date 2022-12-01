@@ -2,6 +2,8 @@ import "../styles/Login.css";
 import React from "react";
 import axios from 'axios';
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 const Login = () => {
   const [data, setData] = useState({
@@ -17,6 +19,7 @@ const Login = () => {
     });
   };
 
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     const userData = {
@@ -27,6 +30,7 @@ const Login = () => {
     axios.post("http://localhost:4000/LoginDetails",userData).then((response)=> {
       if (response.data == true){
         console.log('logged in');
+        navigate("/");
       }
       else{
         alert('fail');
