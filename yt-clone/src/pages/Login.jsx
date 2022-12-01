@@ -24,10 +24,17 @@ const Login = () => {
       password: data.password
     };
     console.log(userData);
-    axios.post("http://localhost:3000/LoginDetails",userData).then((response)=> {console.log(response);});
+    axios.post("http://localhost:4000/LoginDetails",userData).then((response)=> {
+      if (response.data == true){
+        console.log('logged in');
+      }
+      else{
+        alert('fail');
+      }
+      console.log(response.data);});
   }
   
-  return (
+  return ( 
     <div className="App">
       <form onSubmit = {handleSubmit}> 
       <div className="App-Inner">
