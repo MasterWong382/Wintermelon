@@ -1,17 +1,35 @@
 import "../styles/Login.css";
 import React from "react";
-import {useRef} from 'react';
+import axios from 'axios';
+import { useState } from "react";
 
 const Login = () => {
-  const inputUsername = useRef(null);
-  const inputPassword = useRef(null);
+  const [data, setData] = useState({
+    username: "",
+    password: "",
+  });
 
-  function handleClick(){
-    console.log(inputUsername.current.value);
-    console.log(inputPassword.current.value);
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setData({
+      ...data,
+      [e.target.name]: value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const userData = {
+      username: data.username,
+      password: data.password
+    };
+    console.log(userData);
+    axios.post("http://localhost:3000/LoginDetails",userData).then((response)=> {console.log(response);});
   }
+  
   return (
     <div className="App">
+      <form onSubmit = {handleSubmit}> 
       <div className="App-Inner">
         <img
           className="Gay"
@@ -21,23 +39,28 @@ const Login = () => {
         <h5>
           Username: &nbsp;
           <input
-            ref = {inputUsername}
             className="search-box"
             type="search"
+            name="username"
             placeholder="Enter Username..."
+            value = {data.username}
+            onChange = {handleChange}
           />
         </h5>
         <h5>
           Password: &nbsp;
           <input
-            ref = {inputPassword}
             type="password"
+            name="password"
             className="search-box"
             placeholder="Enter Password..."
+            value = {data.password}
+            onChange = {handleChange}
           />
         </h5>
-        <button onClick = {handleClick} class="w3-container w3-light-grey w3-justify">Log In</button>
+        <button type="submit" class="w3-container w3-light-grey w3-justify">Log In</button>
       </div>
+      </form>
     </div>
   );
 };
