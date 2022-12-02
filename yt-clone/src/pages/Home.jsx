@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import NavBar from '../components/nav-bar/nav-bar.component';
 import VideoCard from '../components/VideoCard';
+import Sidebar from '../layouts/sidebar';
 
 const Wrapper = styled.div`
   .fb-r {
@@ -12,6 +13,7 @@ const Home = () => {
   return (
     <Wrapper>
       <NavBar />
+      <Sidebar/>
       <h1>Recommended</h1>
       <div className="fb-r">
         <VideoCard
