@@ -14,10 +14,14 @@ router.post('/', (request, response) => {
       // it in array to display
       querySnapshot.forEach((element) => {
         var data = element.data();
-        console.log(data);
+        if (data["username"] == request.body["username"] && data["password"] == request.body["password"]){
+          response.send(true);
+        }
+        else {
+          response.send(false);
+        }
       });
     });
-  response.send(true);
 });
 
 export { router as loginDetailsRouter };
