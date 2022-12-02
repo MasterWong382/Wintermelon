@@ -2,6 +2,8 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import express from 'express';
 import admin from 'firebase-admin';
+import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
 import { createNewUser } from './routes/createNewUserRoute.js';
 import { loginDetailsRouter } from './routes/loginDetailsRoute.js';
 
@@ -33,7 +35,9 @@ const firebaseConfig = {
   messagingSenderId: '271443258606',
   appId: '1:271443258606:web:1c638678684376b4c317ff',
 };
-// const db = admin.firestore();
+
+const firebaseApp = initializeApp(firebaseConfig);
+const auth = getAuth(firebaseApp);
 
 const app = express();
 const PORT = process.env.PORT || 4000;
